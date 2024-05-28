@@ -1,7 +1,7 @@
 import logging
 import pandas as pd
-from zenml import steps
+from zenml import step
 
-@steps
-def clean_df(df:pd.DataFrame)->pd.DataFrame:
+@step
+def clean_df(df:pd.DataFrame)->None:
     pass

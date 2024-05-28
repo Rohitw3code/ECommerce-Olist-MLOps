@@ -1,7 +1,7 @@
 import logging
 import pandas as pd
-from zenml import steps
+from zenml import step
 
-@steps
-def evaluate_model(df:pd.DataFrame)->pd.DataFrame:
+@step
+def evaluate_model(df:pd.DataFrame)->None:
     pass
