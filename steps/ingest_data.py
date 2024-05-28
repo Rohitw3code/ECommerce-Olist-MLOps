@@ -15,11 +15,11 @@ class IngestData:
     
 
 @steps
-def ingest_df(data_path:str)->pd.DataFrame:
+def ingest_df(data_path: str) -> pd.DataFrame:
     try:
         ingest_data = IngestData(data_path)
         df = ingest_data.get_data()
         return df
     except Exception as e:
-        logging.e(f'Error while ingestion {e}')
-        return e
+        print(f"Error ingesting data: {e}")
+        return pd.DataFrame()  # Return an empty DataFrame on error
