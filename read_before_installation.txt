@@ -1,0 +1,9 @@
+use uabntu
+python version used 3.12
+always use venv (to install packages)
+
+---commands to execute----
+zenml init
+zenml down
+zenml up
+python run_pipelines.py
