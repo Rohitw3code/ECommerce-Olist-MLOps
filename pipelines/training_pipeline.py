@@ -4,6 +4,7 @@ from steps.clean_data import clean_data
 from steps.model_train import train_model
 from steps.evaluate import evaluation
 import pandas as pd
+from zenml.client import Client
 
 @pipeline(enable_cache=True)
 def train_pipeline():
