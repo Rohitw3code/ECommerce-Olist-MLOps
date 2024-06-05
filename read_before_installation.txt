@@ -3,7 +3,15 @@ python version used 3.12
 always use venv (to install packages)
 
 ---commands to execute----
+pip install zenml['server']
 zenml init
 zenml down
 zenml up
 python run_pipelines.py
+
+for MLflow
+here mlflow_tracker is name (it can be changed)
+zenml integration install mlflow -y
+zenml experiment-tracker register mlflow_tracker --flavor=mlflow
+zenml model-deployer register mlflow_tracker --flavor=mlflow
+zenml stack register mlflow_stack -a default -o default -d mlflow -e mlflow_tracker --set
