@@ -15,3 +15,10 @@ zenml integration install mlflow -y
 zenml experiment-tracker register mlflow_tracker --flavor=mlflow
 zenml model-deployer register mlflow_tracker --flavor=mlflow
 zenml stack register mlflow_stack -a default -o default -d mlflow -e mlflow_tracker --set
+
+
+get the experiment tracker uri
+from zenml.integrations.mlflow.mlflow_utils import get_tracking_uri
+
+mlflow ui --backend-store-uri f{get_tracking_uri}
+e.g mlflow ui --backend-store-uri "/home/rohit/.config/zenml/local_stores/efbcf4eb-1b57-4f7f-ad0c-fcba66eed705/mlruns"
