@@ -34,9 +34,7 @@ DEPLOY_AND_PREDICT = "deploy_and_predict"
     default=0.92,
     help="Minimum accuracy required to deploy the model",
 )
-
-
-def main(config: str, min_accuracy: float):
+def main(config: str, min_accuracy: float=0.2):
     """Run the MLflow example pipeline."""
     # get the MLflow model deployer stack component
     mlflow_model_deployer_component = MLFlowModelDeployer.get_active_model_deployer()

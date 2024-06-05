@@ -39,5 +39,8 @@ print(uri)
 mlflow ui --backend-store-uri "<tracking_uri>"
 mlflow ui --backend-store-uri "/home/rohit/.config/zenml/local_stores/efbcf4eb-1b57-4f7f-ad0c-fcba66eed705/mlruns"
 
+To deploy the pipeline
+python run_deployment.py --config predict
+
 
 
