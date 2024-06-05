@@ -37,12 +37,13 @@ class DataPreprocessStrategy(DataStrategy):
                 ],
                 axis=1,
             )
-            data["product_weight_g"].fillna(data["product_weight_g"].median(), inplace=True)
-            data["product_length_cm"].fillna(data["product_length_cm"].median(), inplace=True)
-            data["product_height_cm"].fillna(data["product_height_cm"].median(), inplace=True)
-            data["product_width_cm"].fillna(data["product_width_cm"].median(), inplace=True)
+            
+            data["product_weight_g"] = data["product_weight_g"].fillna(data["product_weight_g"].median())
+            data["product_length_cm"] = data["product_length_cm"].fillna(data["product_length_cm"].median())
+            data["product_height_cm"] = data["product_height_cm"].fillna(data["product_height_cm"].median())
+            data["product_width_cm"]= data["product_width_cm"].fillna(data["product_width_cm"].median())
             # write "No review" in review_comment_message column
-            data["review_comment_message"].fillna("No review", inplace=True)
+            data["review_comment_message"] = data["review_comment_message"].fillna("No review")
 
             data = data.select_dtypes(include=[np.number])
             cols_to_drop = ["customer_zip_code_prefix", "order_item_id"]
@@ -59,13 +60,13 @@ class DataDivideStrategy(DataStrategy):
     Data dividing strategy which divides the data into train and test data.
     """
 
-    def handle_data(self, data: pd.DataFrame) -> Union[pd.DataFrame, pd.Series]:
+    def handle_data(self, data: pd.DataFrame) -> Union[pd.DataFrame]:
         """
         Divides the data into train and test data.
         """
         try:
             X = data.drop("review_score", axis=1)
-            y = data["review_score"]
+            y = pd.DataFrame(data["review_score"])
             X_train, X_test, y_train, y_test = train_test_split(
                 X, y, test_size=0.2, random_state=42
             )
