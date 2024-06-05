@@ -86,6 +86,7 @@ class DataCleaning:
         self.df = data
         self.strategy = strategy
 
+    
     def handle_data(self) -> Union[pd.DataFrame, pd.Series]:
         """Handle data based on the provided strategy"""
         return self.strategy.handle_data(self.df)
